@@ -15,12 +15,17 @@ class DiscordNotificationsCore {
 	 * and also links to user site, groups editing, talk and contribs pages.
 	 */
 	private static function getDiscordUserText( $user ) {
-		global $wgDiscordNotificationWikiUrl, $wgDiscordNotificationWikiUrlEnding, $wgDiscordNotificationWikiUrlEndingUserPage,
+		global $wgDiscordUseFullName, $wgDiscordNotificationWikiUrl, $wgDiscordNotificationWikiUrlEnding, $wgDiscordNotificationWikiUrlEndingUserPage,
 			$wgDiscordNotificationWikiUrlEndingBlockUser, $wgDiscordNotificationWikiUrlEndingUserRights,
 			$wgDiscordNotificationWikiUrlEndingUserTalkPage, $wgDiscordNotificationWikiUrlEndingUserContributions,
 			$wgDiscordIncludeUserUrls;
 
 		$userName = $user->getName();
+
+		if($wgDiscordUseFullName) {
+			$userName = $user->getRealName();
+		}
+
 		$user_url = str_replace( "&", "%26", $userName );
 		if ( $wgDiscordIncludeUserUrls ) {
 			return sprintf(

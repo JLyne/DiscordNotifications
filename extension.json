@@ -68,6 +68,7 @@
 		"DiscordAdditionalIncomingWebhookUrls": [],
 		"DiscordFromName": "",
 		"DiscordSendMethod": "curl",
+		"DiscordUseFullName": false,
 		"DiscordIncludePageUrls": true,
 		"DiscordIncludeUserUrls": true,
 		"DiscordIgnoreMinorEdits": false,
