@@ -43,6 +43,7 @@ class DiscordNotifier {
 		'DiscordNotificationWikiUrlEndingUserRights',
 		'DiscordNotificationWikiUrlEndingUserTalkPage',
 		'DiscordSendMethod',
+		'DiscordUseFullName',
 		'Sitename',
 	];
 
@@ -313,6 +314,10 @@ class DiscordNotifier {
 		$wikiUrl = $this->options->get( 'DiscordNotificationWikiUrl' ) . $this->options->get( 'DiscordNotificationWikiUrlEnding' );
 
 		$userName = $user->getName();
+		if( $this->options->get( 'DiscordUseFullName' ) ) {
+			$userName = $user->getRealName();
+		}
+
 		$user_url = str_replace( '&', '%26', $userName );
 		$userName = str_replace( '>', '\>', $userName );
 
