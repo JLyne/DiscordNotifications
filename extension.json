@@ -83,6 +83,9 @@
 		"DiscordSendMethod": {
 			"value": "curl"
 		},
+		"DiscordUseFullName": {
+			"value":  false
+		},
 		"DiscordCurlProxy": {
 			"value": ""
 		},
